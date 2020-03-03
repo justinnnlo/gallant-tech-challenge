@@ -1,0 +1,37 @@
+.container {
+  border: 1px solid black;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.pet-container {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.search-field {
+  width: 450px;
+  margin: auto;
+  font-size: 15px;
+  align-content: center;
+}
+.flex-dog-grid-child {
+  width: 33%;
+}
+
+.dog-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  margin: 50px auto;
+}
+
+.dog-name {
+  font-size: 20px;
+  text-align: center;
+}
+
+.dog-one-card {
+  margin: 50px 50px;
+}
