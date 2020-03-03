@@ -15,8 +15,7 @@ This simple application does provide you with:
 - [✔] Add a filter, that displays only selected breeds by comma-separated values.
 - [✔] Create a readme file and leave some basic instructions explaining how to run and test the project.
 - [✔] Upload the codebase in your GitHub account and send the link to [fabio@ae.studio](mailto:fabio@ae.studio).
+- [✔] Cache the API responses to prevent extra data consumption.
 
 ## Features in progress:
-- [ ] Cache the API responses to prevent extra data consumption. 
-^ needed more time to implement local storage to cache the return values from API calls.
 - [ ] You must cover at least one Use Case with Unit or Integration tests. 
