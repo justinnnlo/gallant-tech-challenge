@@ -4,7 +4,8 @@ import DogGrid from './DogGrid';
 const Dog = (props) => {
   const dogList = [];
   const dogPropsKeys = Object.keys(props.dogInfos);
-
+  console.log('in dog storage', window.localStorage.getItem('dogInfoInCache'));
+  
   for(let i = 0; i < dogPropsKeys.length; i++) {
     let splittedfilteredData = props.filteredData.replace(/ /g, '').split(',');
     if(splittedfilteredData.includes(dogPropsKeys[i])) {

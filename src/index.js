@@ -15,15 +15,26 @@ class PetsContainer extends Component {
     this.setDogInfo = this.setDogInfo.bind(this);
     this.updateInputField = this.updateInputField.bind(this);
   }
-
+  
   componentDidMount() {
-    axios.get(`https://dog.ceo/api/breeds/list/all`)
-    .then(resp => {
-      this.setDogInfo(this.filterDogInfo(resp.data.message));
-    })
-    .catch((err)=> {
-      console.log(err);
-    })
+    if(!window.localStorage.getItem('dogInfoInCache')) {
+      console.log('im here');
+      axios.get(`https://dog.ceo/api/breeds/list/all`)
+      .then(resp => {
+        console.log('getting data from server');
+        window.localStorage.setItem("dogInfoInCache", JSON.stringify(resp.data.message));
+        this.setDogInfo(this.filterDogInfo(resp.data.message));
+      })
+      .catch((err)=> {
+        console.log(err);
+      });
+    }
+    else {
+      console.log('getting data from cache');
+      const item = JSON.parse(window.localStorage.getItem("dogInfoInCache"));
+      this.setDogInfo(this.filterDogInfo(item));
+    }
+    
   }
 
   setDogInfo = (dogBreeds) => {
@@ -46,6 +57,7 @@ class PetsContainer extends Component {
   }
   
   render() {
+    console.log('doginfo in state', this.state.dogInfos);
     return (
       <div className='container'>
         <h1 className="pet-container">Welcome to the Gallant Pet Search App!</h1>
